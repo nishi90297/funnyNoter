@@ -16,4 +16,11 @@ public class NoterServiceImpl implements NoterService{
         NoterEntity noterEntity= noterRepository.save(new NoterEntity(data));
         return noterEntity;
     }
+
+    @Override
+    public NoterEntity getData(String id) {
+
+        NoterEntity noterEntity= noterRepository.findById(id).get();
+        return noterEntity;
+    }
 }

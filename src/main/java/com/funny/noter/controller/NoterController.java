@@ -4,9 +4,7 @@ import com.funny.noter.entity.NoterEntity;
 import com.funny.noter.service.NoterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class NoterController {
@@ -19,4 +17,11 @@ public class NoterController {
         NoterEntity result = noterService.saveData(data);
         return result;
     }
+    @GetMapping(value = "/getData/{id}")
+    public String getData(@PathVariable("id") String id){
+        NoterEntity result = noterService.getData(id);
+        return result.getData();
+    }
+
+
 }
